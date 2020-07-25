@@ -1,11 +1,93 @@
-import Container from "./layout.module";
+import Head from "next/head";
+import Link from "next/link";
+import styled from "styled-components";
 
-function Layout({ children }) {
+const name = "Reona Shimada";
+export const siteTitle = `Next.js Sample Website`;
+
+export default function Layout({ children, home }) {
+  const Container = styled.div`
+    max-width: 36rem;
+    padding: 0 1rem;
+    margin: 3rem auto 6rem;
+  `;
+
+  const Header = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `;
+
+  const HeaderImage = styled.div`
+    width: 6rem;
+    height: 6rem;
+  `;
+
+  const HeaderHomeImage = styled.div`
+    width: 8rem;
+    height: 8rem;
+  `;
+
+  const BorderCircle = styled.div`
+    border-radius: 9999px;
+  `;
+
+  const BackToHome = styled.div`
+    margin: 3rem 0 0;
+  `;
+
   return (
-    <div>
-      <Container>{children}</Container>
-    </div>
+    <Container>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Learn how to build a personal website using Next.js"
+        />
+        <meta
+          property="og:image"
+          content={`https://og-image.now.sh/${encodeURI(
+            siteTitle
+          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+        />
+        <meta name="og:title" content={siteTitle} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      <Header>
+        {home ? (
+          <>
+            <HeaderHomeImage>
+              <BorderCircle>
+                <img src="/images/profile.png" alt={name} />
+              </BorderCircle>
+            </HeaderHomeImage>
+            <h1>{name}</h1>
+          </>
+        ) : (
+          <>
+            <Link href="/">
+              <a>
+                <HeaderImage>
+                  <img src="/images/profile.png" alt={name} />
+                </HeaderImage>
+              </a>
+            </Link>
+            <h2>
+              <Link href="/">
+                <a>{name}</a>
+              </Link>
+            </h2>
+          </>
+        )}
+      </Header>
+      <main>{children}</main>
+      {!home && (
+        <BackToHome>
+          <Link href="/">
+            <a>←Back to Home</a>
+          </Link>
+        </BackToHome>
+      )}
+    </Container>
   );
 }
-
-export default Layout;
