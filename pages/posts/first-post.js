@@ -1,8 +1,8 @@
-import Head from "next/head";
-import Link from "next/link";
-import Layout from "../../components/layout";
+import Head from 'next/head'
+import Link from 'next/link'
+import Layout from '../../components/layout'
 
-export default function FirstPost() {
+export const FirstPost = () => {
   return (
     <Layout>
       <Head>
@@ -15,5 +15,5 @@ export default function FirstPost() {
         </Link>
       </h2>
     </Layout>
-  );
+  )
 }

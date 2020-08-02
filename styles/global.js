@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -27,6 +27,6 @@ img {
   max-width: 100%;
   display: block;
 }
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

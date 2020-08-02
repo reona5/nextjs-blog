@@ -1,13 +1,13 @@
-import React from "react";
-import GlobalStyle from "../styles/global";
+import React from 'react'
+import GlobalStyle from '../styles/global'
 
-function App({ Component, pageProps }) {
+const App = ({ Component, pageProps }) => {
   return (
     <>
       <GlobalStyle />
       <Component {...pageProps} />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

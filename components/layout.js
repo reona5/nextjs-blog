@@ -1,41 +1,41 @@
-import Head from "next/head";
-import Link from "next/link";
-import styled from "styled-components";
+import Head from 'next/head'
+import Link from 'next/link'
+import styled from 'styled-components'
 
-const name = "Reona Shimada";
-export const siteTitle = `Next.js Sample Website`;
+const name = 'Reona Shimada'
+export const siteTitle = `Next.js Sample Website`
 
-export default function Layout({ children, home }) {
-  const Container = styled.div`
-    max-width: 36rem;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
-  `;
+const Container = styled.div`
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+`
 
-  const Header = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  `;
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
-  const HeaderImage = styled.div`
-    width: 6rem;
-    height: 6rem;
-  `;
+const HeaderImage = styled.div`
+  width: 6rem;
+  height: 6rem;
+`
 
-  const HeaderHomeImage = styled.div`
-    width: 8rem;
-    height: 8rem;
-  `;
+const HeaderHomeImage = styled.div`
+  width: 8rem;
+  height: 8rem;
+`
 
-  const BorderCircle = styled.div`
-    border-radius: 9999px;
-  `;
+const ProfileImage = styled.img`
+  border-radius: 9999px;
+`
 
-  const BackToHome = styled.div`
-    margin: 3rem 0 0;
-  `;
+const BackToHome = styled.div`
+  margin: 3rem 0 0;
+`
 
+const Layout = ({ children, home }) => {
   return (
     <Container>
       <Head>
@@ -57,9 +57,7 @@ export default function Layout({ children, home }) {
         {home ? (
           <>
             <HeaderHomeImage>
-              <BorderCircle>
-                <img src="/images/profile.png" alt={name} />
-              </BorderCircle>
+              <ProfileImage src="/images/profile.png" alt={name} />
             </HeaderHomeImage>
             <h1>{name}</h1>
           </>
@@ -68,7 +66,7 @@ export default function Layout({ children, home }) {
             <Link href="/">
               <a>
                 <HeaderImage>
-                  <img src="/images/profile.png" alt={name} />
+                  <ProfileImage src="/images/profile.png" alt={name} />
                 </HeaderImage>
               </a>
             </Link>
@@ -89,5 +87,7 @@ export default function Layout({ children, home }) {
         </BackToHome>
       )}
     </Container>
-  );
+  )
 }
+
+export default Layout
