@@ -4,11 +4,12 @@ module.exports = {
     'prettier/react',
     'prettier/standard',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     sourceType: 'module',
     ecmaVersion: 2020,
     ecmaFeatures: {
-      jsx: true,
+      tsx: true,
     },
   },
   env: {

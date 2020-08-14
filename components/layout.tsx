@@ -35,7 +35,13 @@ const BackToHome = styled.div`
   margin: 3rem 0 0;
 `
 
-const Layout = ({ children, home }) => {
+const Layout = ({
+  children,
+  home,
+}: {
+  children: React.ReactNode
+  home?: boolean
+}) => {
   return (
     <Container>
       <Head>

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Date from '../components/date'
 import styled from 'styled-components'
 import { getSortedPostsData } from '../lib/posts'
+import { GetStaticProps } from 'next'
 
 const Heading = styled.section`
   font-size: 1.5rem;
@@ -21,17 +22,15 @@ const ListItem = styled.li`
   margin: 0 0 1.25rem;
 `
 
-export const getStaticProps = async () => {
-  const allPostsData = getSortedPostsData()
-
-  return {
-    props: {
-      allPostsData,
-    },
-  }
-}
-
-const Main = ({ allPostsData }) => {
+const Main = ({
+  allPostsData,
+}: {
+  allPostsData: {
+    id: string
+    date: string
+    title: string
+  }[]
+}) => {
   return (
     <Layout>
       <Head>
@@ -51,6 +50,16 @@ const Main = ({ allPostsData }) => {
       </List>
     </Layout>
   )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+  const allPostsData = getSortedPostsData()
+
+  return {
+    props: {
+      allPostsData,
+    },
+  }
 }
 
 export default Main
