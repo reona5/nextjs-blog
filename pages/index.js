@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import Layout, { siteTitle } from '../components/layout'
+import Link from 'next/link'
+import Date from '../components/date'
 import styled from 'styled-components'
 import { getSortedPostsData } from '../lib/posts'
 
@@ -39,11 +41,11 @@ const Main = ({ allPostsData }) => {
       <List>
         {allPostsData.map(({ id, date, title }) => (
           <ListItem key={id}>
-            {title}
+            <Link href="/posts/[id]" as={`/posts/${id}`}>
+              <a>{title}</a>
+            </Link>
             <br />
-            {id}
-            <br />
-            {date}
+            <Date dateString={date} />
           </ListItem>
         ))}
       </List>
